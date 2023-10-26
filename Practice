@@ -1,0 +1,13 @@
+import pandas as pd
+
+# Load the dataset
+df = pd.read_csv("https://raw.githubusercontent.com/insaid2018/Term-1/master/Data/Casestudy/netflix_titles.csv")
+
+# Filter the dataset to only include movies
+movies = df[df["type"] == "Movie"]
+
+# Sort the movies by their release year
+movies = movies.sort_values("release_year", ascending=False)
+
+# Print the top 10 movies by release year
+print(movies[["title", "release_year"]].head(10))
